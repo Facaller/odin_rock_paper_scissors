@@ -1,0 +1,21 @@
+--- PSEUDOCODE FOR THE ODIN PROJECT ROCK PAPER SCISSORS ---
+
+1) Create a function that will return a random answer between either 'Rock', 'Paper', or 'Scissors'.
+
+	1.1) Create a function that will return a random numerical value.
+	1.2) Return a random numerical value within a specific range.
+	1.3) Assign a string to each numerical value.
+	1.4) Return a random numerical/string value ('Rock, Paper, Scissors') within a specific range.
+
+2) Create a function that plays a single round of Rock Paper Scissors with parameters for computer and player.
+
+	2.1) Create a prompt that saves the user input (player parameter).
+	2.2) Compare that input to the random value in previous function.
+	2.3) Make player selection parameter case insensitve.
+	2.4) Return a string from various function combinations based result. 
+
+3) Create function that calls the one round function five times and declares the winner.
+
+	3.1) Call function five times or create loop that does this.
+	3.2) Check each round status and return a string for winner or loser.
+	3.3) Check who won most rounds and return string for winner or loser.
