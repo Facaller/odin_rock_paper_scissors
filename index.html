@@ -7,9 +7,27 @@
 </head>
 <body>
     <script>
-        function getComputerChoice() {
 
-        }
+        function getComputerChoice () {
+            let rps = (Math.floor(Math.random() * 3 +1))
+            
+            if (rps === 1) {
+                console.log ('Rock')
+            } else if (rps === 2) {
+                console.log ('Paper')
+            } else {( rps === 3) 
+                console.log ('Scissors')
+            }
+        };
+        
+        
     </script>
 </body>
 </html>
+
+ <!-- function getComputerChoice() {
+         let rps = ['Rock', 'Paper', 'Scissors'];
+         return rps [Math.floor(Math.random() * rps.length)];
+     }
+
+     console.log(getComputerChoice()) -->

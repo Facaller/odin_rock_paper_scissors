@@ -9,6 +9,7 @@
 
 2) Create a function that plays a single round of Rock Paper Scissors with parameters for computer and player.
 
+	2.1) Create a function that takes two parameters (player and computer)
 	2.1) Create a prompt that saves the user input (player parameter).
 	2.2) Compare that input to the random value in previous function.
 	2.3) Make player selection parameter case insensitve.
@@ -18,4 +19,4 @@
 
 	3.1) Call function five times or create loop that does this.
 	3.2) Check each round status and return a string for winner or loser.
-	3.3) Check who won most rounds and return string for winner or loser.
+	3.3) Check who won most rounds and return string for winner or loser. 
