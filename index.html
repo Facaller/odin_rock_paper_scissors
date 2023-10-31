@@ -8,19 +8,45 @@
 <body>
     <script>
 
+        
         function getComputerChoice () {
-            let rps = (Math.floor(Math.random() * 3 +1))
+        let rps = (Math.floor(Math.random() * 3 +1))
             
-            if (rps === 1) {
-                console.log ('Rock')
-            } else if (rps === 2) {
-                console.log ('Paper')
-            } else {( rps === 3) 
-                console.log ('Scissors')
+            if (rps == 1) {
+                console.log ('rock')
+                return 'rock'
+            } else if (rps == 2) {
+                console.log ('paper')
+                return 'paper'
+            } else {( rps == 3) 
+                console.log ('scissors')
+                return 'scissors'
             }
         };
-        
-        
+        // rock vs rock works. Set round for rock games then go on to others//
+        function playRound (playerSelection, computerSelection) {
+            
+            if (playerSelection == 'rock' && computerSelection == 'rock')
+            console.log('You win')
+        }
+
+        const playerSelection = 'rock';
+        const computerSelection = getComputerChoice();
+        console.log(playRound(playerSelection, computerSelection));
+
+        // function playRound (playerSelection, computerSelection) {
+        //     let playerChoice = prompt('Choose your destiny... wisely')
+
+        //     if (playerChoice == 'rock') {
+        //         return 'Rock'
+        //     } else if (playerChoice == 'paper') {
+        //         return 'Paper'
+        //     } else if ( playerChoice == 'scissors') {
+        //         return 'Scissors'
+        //     } else {
+        //         return prompt("Stop playin'")
+        //     }
+        // };
     </script>
 </body>
 </html>
