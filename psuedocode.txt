@@ -18,5 +18,5 @@
 3) Create function that calls the one round function five times and declares the winner.
 
 	3.1) Call function five times or create loop that does this.
-	3.2) Check each round status and return a string for winner or loser.
-	3.3) Check who won most rounds and return string for winner or loser. 
+	3.2) Check each round status based on returned interger.
+	3.3) Check who won most rounds (count interger up until 3, or do 5 rounds including draws) and return string for winner or loser at the end of game. 
