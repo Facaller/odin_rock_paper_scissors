@@ -44,31 +44,29 @@
             || (playerSelection == 'paper' && computerSelection == 'rock')
             || (playerSelection == 'scissors' && computerSelection == 'paper')) {
                console.log('You win this round!')
-                return playerScore + 1; 
+                return playerScore = playerScore + 1; 
             } else if ((playerSelection == 'rock' && computerSelection == 'paper')
             || (playerSelection == 'paper' && computerSelection == 'scissors')
             || (playerSelection == 'scissors' && computerSelection == 'rock')) {
                 console.log('You lost this round :(')
-                return computerScore + 1
-            } else {((playerSelection == 'rock' && computerSelection == 'rock') 
+                return computerScore = computerScore + 1
+            } else if ((playerSelection == 'rock' && computerSelection == 'rock') 
             || (playerSelection == 'paper' && computerSelection == 'paper')
-            || (playerSelection == 'scissors' && computerSelection == 'scissors'))
+            || (playerSelection == 'scissors' && computerSelection == 'scissors')) {
                 console.log("It's a draw.")
-                return drawCounter + 1
+                return drawCounter = drawCounter + 1
             }
         }
-        // Use the returned score number from computer or player and create a string 
-        // based on whether one of them + 1 to their score. SO if player has score 1
-        // create string 'You won'.
+        // First round works, need to let counter count up to 3 and also fix one round
+        // result showing the same as previous result. Think it has to do with "else"
+        // in playRound function
 
         function game () {
-            
+        
             console.log(playRound(playerSelection, computerSelection));
+            getComputerChoice();
+            getPlayerChoice();
             console.log(playRound(playerSelection, computerSelection));
-            console.log(playRound(playerSelection, computerSelection));
-            console.log(playRound(playerSelection, computerSelection));
-            console.log(playRound(playerSelection, computerSelection));
-            
         }
         let drawCounter = 0
         let playerScore = 0
@@ -76,7 +74,7 @@
         const playerSelection = getPlayerChoice();
         const computerSelection = getComputerChoice();
         
-        console.log(game())
+        console.log(game());
 
     </script>
 </body>
