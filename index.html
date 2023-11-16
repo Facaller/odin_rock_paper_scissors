@@ -32,7 +32,7 @@
                 return 'rock'
             } else if (playerChoice == 'paper') {
                 return 'paper'
-            }else if (playerChoice == 'scissors'){
+            } else if (playerChoice == 'scissors'){
                 return 'scissors'
             } else {
                 alert("Quit playin', bruh.")
@@ -40,38 +40,49 @@
             }
         }
         
-        function playRound (playerSelection, computerSelection, computerScore, playerScore, drawCounter) {
+        function playRound (playerSelection, computerSelection) {
             
             if ((playerSelection == 'rock' && computerSelection == 'scissors')
             || (playerSelection == 'paper' && computerSelection == 'rock')
             || (playerSelection == 'scissors' && computerSelection == 'paper')) {
                 console.log ('You win this round!')
-                playerScore = playerScore + 1
+                return playerScore++
             } else if ((playerSelection == 'rock' && computerSelection == 'paper')
             || (playerSelection == 'paper' && computerSelection == 'scissors')
             || (playerSelection == 'scissors' && computerSelection == 'rock')) {
                 console.log ('You lost this round :(')
-                computerScore = computerScore + 1
+                return computerScore++
             } else {
                 console.log ("It's a draw.")
-                drawCounter = drawCounter + 1
+                return drawCounter++
             }
         }
         
         function game () {
         
+            const playerSelection = getPlayerChoice();
+            const computerSelection = getComputerChoice();
+            const score = playRound (playerSelection, computerSelection)
+
+            if (playerScore) {
+                console.log (`Player score: ${playerScore}`)
+            } else if (computerScore) {
+                console.log (`Computer score: ${computerScore}`)
+            } else {
+                console.log (`Draw counter: ${drawCounter}`)
+            }
+        }
+        // create function with > and < to say who wins
             let playerScore = 0
             let computerScore = 0
             let drawCounter = 0
-            
-            const playerSelection = getPlayerChoice();
-            const computerSelection = getComputerChoice();
-
-            playRound (playerSelection, computerSelection, computerScore, playerScore, drawCounter)
-        }
         
         game();
         game();
+        game();
+        game();
+        game();
+        
 
     </script>
 </body>
