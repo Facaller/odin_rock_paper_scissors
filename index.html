@@ -46,18 +46,18 @@
             || (playerSelection == 'paper' && computerSelection == 'rock')
             || (playerSelection == 'scissors' && computerSelection == 'paper')) {
                 console.log ('You win this round!')
-                return playerScore++
+                playerScore++
             } else if ((playerSelection == 'rock' && computerSelection == 'paper')
             || (playerSelection == 'paper' && computerSelection == 'scissors')
             || (playerSelection == 'scissors' && computerSelection == 'rock')) {
                 console.log ('You lost this round :(')
-                return computerScore++
+                computerScore++
             } else {
                 console.log ("It's a draw.")
-                return drawCounter++
+                drawCounter++
             }
         }
-        
+        //show most recently updated score
         function game () {
         
             const playerSelection = getPlayerChoice();
@@ -73,6 +73,16 @@
             }
         }
         // create function with > and < to say who wins
+
+        function winner () {
+            if (playerScore > computerScore) {
+                console.log ('Great job! You won')
+            } else if (computerScore > playerScore) {
+                console.log ('Unlucky! The computer won')
+            } else {
+                console.log ("It's a tie.")
+            }
+        }
             let playerScore = 0
             let computerScore = 0
             let drawCounter = 0
@@ -82,7 +92,7 @@
         game();
         game();
         game();
-        
+        winner();
 
     </script>
 </body>
