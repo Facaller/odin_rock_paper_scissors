@@ -47,14 +47,17 @@
             || (playerSelection == 'scissors' && computerSelection == 'paper')) {
                 console.log ('You win this round!')
                 playerScore++
+                console.log (`Player score: ${playerScore}`)
             } else if ((playerSelection == 'rock' && computerSelection == 'paper')
             || (playerSelection == 'paper' && computerSelection == 'scissors')
             || (playerSelection == 'scissors' && computerSelection == 'rock')) {
                 console.log ('You lost this round :(')
                 computerScore++
+                console.log (`Computer score: ${computerScore}`)
             } else {
                 console.log ("It's a draw.")
                 drawCounter++
+                console.log (`Draw counter: ${drawCounter}`)
             }
         }
         //show most recently updated score
@@ -64,13 +67,6 @@
             const computerSelection = getComputerChoice();
             const score = playRound (playerSelection, computerSelection)
 
-            if (playerScore) {
-                console.log (`Player score: ${playerScore}`)
-            } else if (computerScore) {
-                console.log (`Computer score: ${computerScore}`)
-            } else {
-                console.log (`Draw counter: ${drawCounter}`)
-            }
         }
         // create function with > and < to say who wins
 
