@@ -1,4 +1,3 @@
- 
 function getComputerChoice () {
 
     let computerChoice = (Math.floor(Math.random() * 3 +1))
@@ -9,7 +8,7 @@ function getComputerChoice () {
     } else if (computerChoice == 2) {
         console.log ('paper')
         return 'paper'
-    } else {(computerChoice == 3) 
+    } else { 
         console.log ('scissors')
         return 'scissors'
     }
@@ -23,10 +22,11 @@ function getPlayerChoice () {
         return 'rock'
     } else if (playerChoice == 'paper') {
         return 'paper'
-    }else if (playerChoice == 'scissors'){
+    } else if (playerChoice == 'scissors'){
         return 'scissors'
-    } else {(playerChoice == '')
+    } else {
         alert("Quit playin', bruh.")
+        return getPlayerChoice()
     }
 }
 
@@ -35,32 +35,47 @@ function playRound (playerSelection, computerSelection) {
     if ((playerSelection == 'rock' && computerSelection == 'scissors')
     || (playerSelection == 'paper' && computerSelection == 'rock')
     || (playerSelection == 'scissors' && computerSelection == 'paper')) {
-        return 'You win this round!'
+        console.log ('You win this round!')
+        playerScore++
+        console.log (`Player score: ${playerScore}`)
     } else if ((playerSelection == 'rock' && computerSelection == 'paper')
     || (playerSelection == 'paper' && computerSelection == 'scissors')
     || (playerSelection == 'scissors' && computerSelection == 'rock')) {
-        return 'You lost this round :('
-    } else if ((playerSelection == 'rock' && computerSelection == 'rock') 
-    || (playerSelection == 'paper' && computerSelection == 'paper')
-    || (playerSelection == 'scissors' && computerSelection == 'scissors')) {
-        return "It's a draw."
+        console.log ('You lost this round :(')
+        computerScore++
+        console.log (`Computer score: ${computerScore}`)
+    } else {
+        console.log ("It's a draw.")
+        drawCounter++
+        console.log (`Draw counter: ${drawCounter}`)
     }
 }
-// create a new function that uses the stored values below to play the game
+//show most recently updated score
 function game () {
 
-    console.log (singleGame);
-    getComputerChoice();
-    getPlayerChoice();
-    console.log (playRound(playerSelection, computerSelection));
-    
+    const playerSelection = getPlayerChoice();
+    const computerSelection = getComputerChoice();
+    const score = playRound (playerSelection, computerSelection)
+
 }
+// create function with > and < to say who wins
 
-let drawCounter = 0
-let playerScore = 0
-let computerScore = 0
-const playerSelection = getPlayerChoice();
-const computerSelection = getComputerChoice();
-const singleGame = playRound(playerSelection, computerSelection);
+function winner () {
+    if (playerScore > computerScore) {
+        console.log ('Great job! You won')
+    } else if (computerScore > playerScore) {
+        console.log ('Unlucky! The computer won')
+    } else {
+        console.log ("It's a tie.")
+    }
+}
+    let playerScore = 0
+    let computerScore = 0
+    let drawCounter = 0
 
-console.log(game());
+game();
+game();
+game();
+game();
+game();
+winner();
