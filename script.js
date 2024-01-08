@@ -14,6 +14,28 @@ function getComputerChoice () {
     }
 };
 
+let box = document.querySelector('#box');
+
+box.addEventListener('click', (e) => {
+    let target = e.target;
+
+    switch(target.id) {
+        case 'rock':
+            console.log('rock')
+            return 'rock';
+            break;
+        case 'paper':
+            console.log('paper')
+            return 'paper';
+            break
+        case 'scissors':
+            console.log('scissors')
+            return 'scissors';
+            break
+        
+    }
+})
+
 function getPlayerChoice () {
 
     let playerChoice = prompt('Choose your destiny... wisely.').toLowerCase();
@@ -73,9 +95,9 @@ function winner () {
     let computerScore = 0
     let drawCounter = 0
 
-game();
-game();
-game();
-game();
-game();
-winner();
+// game();
+// game();
+// game();
+// game();
+// game();
+// winner();
