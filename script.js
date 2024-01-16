@@ -1,3 +1,15 @@
+let box = document.querySelector('#box');
+let results = document.querySelector('#results');
+let pcChoice = document.querySelector('#pcChoice')
+let userChoice = document.querySelector('#userChoice')
+let score = document.querySelector('#score')
+
+let computerSelection = ''
+let playerSelection = ''
+let playerScore = 0
+let computerScore = 0
+let drawCounter = 0
+
 function getComputerChoice () {
 
     let computerChoice = (Math.floor(Math.random() * 3 +1))
@@ -14,22 +26,10 @@ function getComputerChoice () {
     }
 };
 
-let box = document.querySelector('#box');
-
 const getPlayerChoice = box.addEventListener('click', (e) => {
         let target = e.target;
-
-        switch(target.id) {
-            case 'rock':
-                console.log(`You chose ${target.id.toLowerCase()}`)
-                return target.id;
-            case 'paper':
-                console.log(`You chose ${target.id.toLowerCase()}`)
-                return target.id;
-            case 'scissors':
-                console.log(`You chose ${target.id.toLowerCase()}`)
-                return target.id;
-        }
+        playerSelection = target.id
+        console.log(`You chose ${playerSelection}`)
     });
 
 function playRound (playerSelection, computerSelection) {
@@ -53,53 +53,26 @@ function playRound (playerSelection, computerSelection) {
     }
 }
 function game () {
-
-    const playerSelection = getPlayerChoice;
     const computerSelection = getComputerChoice();
-    const score = playRound (playerSelection, computerSelection)
+    playRound (playerSelection, computerSelection)
 
+}
+
+function winner () {
+    if (computerScore === 5) {
+        results.textContent = 'The computer won the game'
+    } else if (playerScore === 5) {
+        results.textContent = 'You won the game'
+    } else if (drawCounter === 5) {
+        results.textContent = "It's a draw"
+    }
 }
 
 box.addEventListener('click', () => {
     game();
+    let computerSelection = getComputerChoice()
+    pcChoice.textContent = `Computer chose ${computerSelection}`
+    userChoice.textContent = `You chose ${playerSelection}`
+    score.textContent = `Player score: ${playerScore} | Computer score: ${computerScore} | Draw counter: ${drawCounter}`
+    winner();
 });
-
-function winner () {
-    if (playerScore > computerScore) {
-        console.log ('Great job! You won')
-    } else if (computerScore > playerScore) {
-        console.log ('Unlucky! The computer won')
-    } else {
-        console.log ("It's a tie.")
-    }
-}
-    let playerScore = 0
-    let computerScore = 0
-    let drawCounter = 0
-
-//  game();
-// game();
-// game();
-// game();
-// game();
-// winner();
-
-
-// function getPlayerChoice () {
-// let playerChoice = prompt('Choose your destiny... wisely.').toLowerCase();
-
-//     if (playerChoice == 'rock') {
-//         return 'rock'
-//     } else if (playerChoice == 'paper') {
-//         return 'paper'
-//     } else if (playerChoice == 'scissors'){
-//         return 'scissors'
-//     } else {
-//         alert("Quit playin', bruh.")
-//         return getPlayerChoice()
-//     }
-// }
-
-// function getPlayerChoice() {
-    
-// }
