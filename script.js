@@ -1,17 +1,18 @@
 let box = document.querySelector('#box');
+let rock = document.querySelector('#rock');
+let paper = document.querySelector('#paper');
+let scissors = document.querySelector('#scissors');
 let results = document.querySelector('#results');
-let pcChoice = document.querySelector('#pcChoice')
-let userChoice = document.querySelector('#userChoice')
-let score = document.querySelector('#score')
+let pcChoice = document.querySelector('#pcChoice');
+let userChoice = document.querySelector('#userChoice');
+let score = document.querySelector('#score');
 
-let computerSelection = ''
 let playerSelection = ''
 let playerScore = 0
 let computerScore = 0
 let drawCounter = 0
 
 function getComputerChoice () {
-
     let computerChoice = (Math.floor(Math.random() * 3 +1))
 
     if (computerChoice == 1) {
@@ -33,7 +34,6 @@ const getPlayerChoice = box.addEventListener('click', (e) => {
     });
 
 function playRound (playerSelection, computerSelection) {
-    
     if ((playerSelection === 'rock' && computerSelection === 'scissors')
     || (playerSelection === 'paper' && computerSelection === 'rock')
     || (playerSelection === 'scissors' && computerSelection === 'paper')) {
@@ -55,7 +55,20 @@ function playRound (playerSelection, computerSelection) {
 function game () {
     const computerSelection = getComputerChoice();
     playRound (playerSelection, computerSelection)
+}
 
+function reset () {
+    if (computerScore === 5 || playerScore === 5 || drawCounter === 5) {
+        rock.disabled = true;
+        paper.disabled = true
+        scissors.disabled = true
+        let btn = document.createElement('button');
+        btn.textContent = 'Reset';
+        box.appendChild(btn);
+        btn.addEventListener('click', () => {
+            location.reload()
+        })
+    }
 }
 
 function winner () {
@@ -66,6 +79,7 @@ function winner () {
     } else if (drawCounter === 5) {
         results.textContent = "It's a draw"
     }
+    reset();
 }
 
 box.addEventListener('click', () => {
